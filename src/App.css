@@ -1,0 +1,147 @@
+/* css reset */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: none;
+  /* border: black solid 1px; */
+}
+
+:root {
+  --background-dark: #0B131E;
+  --background-dark-medium: #131a25;
+  --background-dark-container: #202B3B;
+  --dark-ash-text: #DCDCDC;
+  --bright: #fff;
+  --dark-ash: #707070;
+  --light-ash-text: #979DA5;
+  --background-light-container: #E7E8E9;
+  --background-light: #F5F5F5;
+  --dark: #242F3F;
+  --sweet: #FDB82C;
+  --font-general: "Poppins", sans-serif;
+  --box-shadow: 0 2rem 3rem var(--dark-ash);
+  --border-radius: 1.2rem;
+  --border-radius-curve: 2rem;
+}
+
+/* general styles */
+body{
+  background-color: var(--background-dark);
+  
+}
+.flex {
+  display: flex;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.debug {
+  border: black solid 1px;
+}
+
+/* sidenav */
+.sidenav .logo-img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.sidenav {
+  padding: 20px 0;
+  height: 100vh;
+  background-color: var(--background-dark-container);
+}
+.sidenav .logo{
+  align-items: center;
+  gap: 5px;
+  /* justify-content: space-around;  */
+}
+
+.sidenav .logo h2 {
+  font-size: 1rem;
+  /* font-weight: 600; */
+  color: var(--bright);
+}
+
+.sidenav .logo h2 span {
+  color: var(--sweet);
+}
+.sidenav ul,a{
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+.sidenav li{
+  padding: 20px 0 20px 30px;
+  width: 100%;
+  transition: all 5s 0s ease-in;
+
+}
+.sidenav li a{
+width: 100%;
+height: 100%;
+display: block;
+color: var(--dark-ash-text);
+}
+.sidenav li a:hover{
+transform: translateX(-5px);
+
+}
+.sidenav li.active{
+  /* padding: 10px; */
+  /* border: white solid 1px; */
+  /* width: 100%; */
+  background-color: var(--background-dark-medium);
+  border-left: white solid 5px;
+  
+}
+.container{
+  display: grid;
+  gap: 1.8rem;
+  grid-template-columns: 14rem auto 19rem;
+  
+}
+/* main */
+.main .searchbar{
+  width: 100%;
+  height: 45px;
+  border-radius: 30px;
+  border: none;
+  padding: 10px 30px;
+  color: var(--dark-ash-text);
+  background-color: var(--background-dark-container);
+  margin-top: 6%;
+}
+.main .city h1{
+  color: var(--bright);
+    font-size: 5rem;
+    font-weight: 600;
+}
+.main .city h3{
+  font-size: 0.9rem;
+    color: var(--light-ash-text);
+    font-weight: 400;
+
+}
+.main .temperature{
+  font-size: 3rem;
+  margin-top: 3rem;
+  color: var(--bright);
+}
+.aside{
+  background-color: var(--background-dark-container);
+  border-radius: 20px;
+  height: 110vh;
+  margin-right: 30px;
+  margin-top: 15px;
+  color: var(--dark-ash-text);
+  padding: 20px;
+}
+.aside li{
+  justify-content: space-between;
+  padding: 20px 0;
+  
+}
