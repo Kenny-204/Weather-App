@@ -67,7 +67,7 @@ function Searchbar() {
   const getData = async function (country) {
     try {
       const response = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${country}&days=7&aqi=yes&alerts=no`
+        `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${country}&days=7&aqi=yes&alerts=no`
       );
       const data = await response.json();
 
