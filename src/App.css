@@ -101,6 +101,7 @@ width:33%
 @media all and (max-width:780px) {
 .sidenav{
   width: fit-content;
+  height:fit-content;
 }
 
 
