@@ -111,7 +111,7 @@ function Searchbar() {
           type="text"
           placeholder="Search for cities..."
         />
-        {/* <button className="submit">send</button> */}
+        <button className="submit">send</button>
       </form>
     </>
   );
