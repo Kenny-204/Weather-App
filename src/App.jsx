@@ -7,7 +7,6 @@ import "./App.css";
 
 const weatherContext = createContext();
 
-
 function App() {
   const [state, setState] = useState({
     country: "",
@@ -21,7 +20,7 @@ function App() {
     pressure: "",
     sunset: "",
     humidity: "",
-    fetched:""
+    fetched: "",
   });
   const updateState = (key, value) => {
     setState((prevState) => ({ ...prevState, [key]: value }));
@@ -45,14 +44,13 @@ function Main() {
   return (
     <main className="main">
       <Searchbar />
-      <div className="flex" style={{justifyContent:"space-between"}}>
-
-      <div className="city">
-        <h1>{state.country || "--"} </h1>
-        <h3>Chance of rain: {state.chanceOfRain || "-"}%</h3>
-      <h1 className="temperature">{state.temperature || "--"}&deg;C</h1>
-      </div>
-      <img src="vite.svg" width="20%" />
+      <div className="flex" style={{ justifyContent: "space-between" }}>
+        <div className="city">
+          <h1>{state.country || "--"} </h1>
+          <h3>Chance of rain: {state.chanceOfRain || "-"}%</h3>
+          <h1 className="temperature">{state.temperature || "--"}&deg;C</h1>
+        </div>
+        <img src="vite.svg" width="20%" />
       </div>
       <Forecasts />
       <AirConditions />
@@ -86,7 +84,7 @@ function Searchbar() {
       updateState("pressure", data.current.pressure_in);
       updateState("sunset", data.forecast.forecastday[0].astro.sunset);
       updateState("humidity", data.current.humidity);
-      updateState("fetched", Boolean(data))
+      updateState("fetched", Boolean(data));
 
       console.log(data);
     } catch (e) {
@@ -97,13 +95,18 @@ function Searchbar() {
     <>
       <form
         onSubmit={(e) => {
-          e.preventDefault()
+          e.preventDefault();
           getData("country");
           updateState("country", query);
         }}
       >
         <input
-          onChange={(e) => setQuery(e.target.value[0].toUpperCase() + e.target.value.slice(1,e.target.value.length) )}
+          onChange={(e) =>
+            setQuery(
+              e.target.value[0].toUpperCase() +
+                e.target.value.slice(1, e.target.value.length)
+            )
+          }
           className="searchbar"
           type="text"
           placeholder="Search for cities..."
@@ -126,13 +129,52 @@ function SideNav() {
             </h2>
           </div>
         </li>
-
         <SideNavItem className="active" name="Weather" />
         <SideNavItem name="Cities" />
         <SideNavItem name="Map" />
         <SideNavItem name="Settings" />
+
       </ul>
+      <Dropdown/>
     </nav>
+  );
+}
+
+function Dropdown() {
+  return (
+    <>
+      <div className="toggle_Btn">
+        <svg
+          fill="#42A7C3"
+          width="50px"
+          height="50px"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          enableBackground="new 0 0 24 24"
+        >
+          <path d="M20,11H4c-0.6,0-1,0.4-1,1s0.4,1,1,1h16c0.6,0,1-0.4,1-1S20.6,11,20,11z M4,8h16c0.6,0,1-0.4,1-1s-0.4-1-1-1H4C3.4,6,3,6.4,3,7S3.4,8,4,8z M20,16H4c-0.6,0-1,0.4-1,1s0.4,1,1,1h16c0.6,0,1-0.4,1-1S20.6,16,20,16z" />
+        </svg>
+      </div>
+
+      <div className="dropdown--menu ">
+        <li>
+          <a className="dropdown--item" href="#">
+            Product
+          </a>
+        </li>
+        <li>
+          <a className="dropdown--item" href="#">
+            Contact Us
+          </a>
+        </li>
+        <li>
+          <a className="dropdown--item" href="#">
+            About Us
+          </a>
+        </li>
+        <button className="dropdown--item">Sign Up</button>
+      </div>
+    </>
   );
 }
 
@@ -153,7 +195,7 @@ function Forecasts() {
     <section>
       <div className="forecasts ">
         <h3>Tomorrows Forecast</h3>
-        <div className="flex">
+        <div className="flex forecasts-list">
           {/* {state.forecast[0]} */}
           <Forecast time="6:00 AM" imgsrc="#" temperature="0 C" />
           <Forecast time="6:00 AM" imgsrc="#" temperature="0 C" />
@@ -246,7 +288,6 @@ function Aside() {
 }
 
 function AsideItem({ day, imgsrc, weather, temperature }) {
-
   return (
     <>
       <li className="flex">
@@ -261,4 +302,3 @@ function AsideItem({ day, imgsrc, weather, temperature }) {
 }
 
 export default App;
-

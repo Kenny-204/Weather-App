@@ -54,48 +54,62 @@ body {
   padding: 10px 0;
   height: 100vh;
   background-color: var(--background-dark-container);
+  width: 15%;
 }
 
 
 .container {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   gap: 1.8rem;
-  grid-template-columns: 15% auto 22%;
-
+  /* grid-template-columns: 15% auto 22%; */
+/* grid-template-rows: 100%; */
 }
 
 @media all and (max-width:1206px) {
-  .container {
+.sidenav{
+width:20%;
+}
+.aside{
+width:30%
+}
+  /*.container {
     display: grid;
     gap: 1.8rem;
     grid-template-columns: 20% auto 30%;
 
-  }
+  }*/
+
 }
 
 @media all and (max-width:978px) {
-  .container {
+  /* .container {
     display: grid;
     gap: 1.8rem;
     grid-template-columns: 25% auto 33%;
 
-  }
+  } */
+    .sidenav{
+width:25%;
+}
+.aside{
+width:33%
+}
 }
 
-@media all and (max-width:652px) {
-  .container {
-    display: grid;
-    gap: 1.8rem;
-    grid-template-columns: 12% auto 33%;
 
-  }
+@media all and (max-width:780px) {
+.sidenav{
+  width: fit-content;
+}
+
 
   .sidenav .logo h2,
   .sidenav .logo span,
   .sidenav li  {
     display: none;
   }
-}
+} 
 
 .sidenav .logo {
   align-items: center;
@@ -148,6 +162,7 @@ a {
 /* main */
 .main {
   position: relative;
+  width: 60%;
 }
 
 .main .searchbar {
@@ -203,6 +218,10 @@ a {
   background-color: var(--background-dark-container);
   margin-bottom: 3%;
 }
+.main .forecasts .forecasts-list{
+  overflow-x: scroll;
+
+}
 
 .main .forecasts .forecast {
   margin-top: 3%;
@@ -216,6 +235,7 @@ a {
 
 .air-cond {
   justify-content: space-around;
+  overflow-x: scroll;
 }
 
 .air {
@@ -242,6 +262,7 @@ a {
   color: var(--dark-ash-text);
   padding: 20px;
   transition: all 222s 0s ease-in;
+  width: 22%;
 }
 
 .aside li {
@@ -249,3 +270,72 @@ a {
   padding: 20px 0;
 
 }
+
+
+/*  */
+.dropdown--menu {
+  display: none;
+  height: 0;
+  position: absolute;
+  right: 2rem;
+  /* color:  var(--gray); */
+  top: 60px;
+  width: 200px;
+  background: #f4f7fe;
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 550;
+  /* text-decoration: none; */
+  box-shadow: 1px 1px 13px #d7e3ff;
+  list-style: none;
+  /* display: inline-block; */
+  padding: 10px 20px;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown--item {
+  margin: 5px;
+}
+
+.dropdown--menu a,
+.dropdown--menu a li {
+  padding: 7px;
+  color: var(--gray);
+}
+
+.dropdown--menu.open {
+  height: 250px;
+  display: block;
+}
+
+.dropdown--menu button {
+  background-color: #FA8443;
+  font-family: lato;
+  color: #f7f7f7ff;
+  width: 120px;
+  height: 46px;
+  border-radius: 8px;
+  border: none;
+  display: block;
+}
+
+/* dropdown end */
+/* media queries for dropdown */
+@media all and (max-width:780px) {
+
+
+  nav ul,
+  nav button {
+      display: none;
+  }
+}
+
+@media all and (min-width:780px) {
+  .toggle_Btn {
+      display: none;
+  }
+}
+
+/*  */
