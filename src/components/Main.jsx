@@ -9,8 +9,11 @@ export function Main() {
 
   
   return (
+    
+    <>
     <main className="main">
       <Searchbar />
+      {state.fetched &&<>
       <div className="flex" style={{ justifyContent: "space-between" }}>
         <div className="city">
           <h1>{state.country || "--"} </h1>
@@ -22,6 +25,9 @@ export function Main() {
       </div>
       <Forecasts />
       <AirConditions />
+      </>
+      }
     </main>
+    </>
   );
 }

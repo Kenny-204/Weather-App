@@ -38,7 +38,7 @@ function App() {
         <div className="container">
           <SideNav />
           <Main />
-          <Aside />
+       {state.fetched &&   <Aside />}
         </div>
       </weatherContext.Provider>
     </>
