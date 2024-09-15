@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { weatherContext } from "./App";
+import { weatherContext } from "../app/App.jsx";
 
 export function Searchbar() {
   const { updateState } = useContext(weatherContext);
@@ -71,3 +71,4 @@ export function Searchbar() {
     </>
   );
 }
+

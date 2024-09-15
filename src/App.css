@@ -425,3 +425,12 @@ a {
 }
 
 /*  */
+/* Map Page */
+#map{
+  margin-top: 40px;
+  width: 400px;
+  height: 300px;
+  border: 1px black solid;
+}
+
+/* Map Page Ends */

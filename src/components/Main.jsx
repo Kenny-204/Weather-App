@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { weatherContext } from "./App";
+import { weatherContext } from "../app/App.jsx";
 import { AirConditions } from "./Forecasts";
 import { Forecasts } from "./Forecasts";
 import { Searchbar } from "./Searchbar";

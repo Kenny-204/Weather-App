@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
-import { weatherContext } from "./App";
+import { weatherContext } from "../app/App.jsx";
 
 export function Forecasts() {
   const { state } = useContext(weatherContext);

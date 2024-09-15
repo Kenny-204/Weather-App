@@ -1,14 +1,28 @@
 /* eslint-disable react-refresh/only-export-components */
 
 import { createContext, useState } from "react";
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+
 import "../App.css";
 import "../all.css";
 import "../all.js";
-import {SideNav} from "./sidenav.jsx";
-import { Main } from "./Main.jsx";
-import { Aside } from "./Aside.jsx";
+import Weather from "./pages/Weather.jsx";
+import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import MapPage from "./pages/Map.jsx";
+import NotFound from "./pages/notFoundPage.jsx";
+
+const router = createBrowserRouter([{
+  path: '/',
+  element: <Weather/>,
+  errorElement: <NotFound/>
+},{
+  path: '/Weather',
+  element: <Weather/>,
+  errorElement: <NotFound/>
+},
+{
+  path:'/Map',
+  element: <MapPage/>
+}])
 
 export const weatherContext = createContext();
 
@@ -35,11 +49,9 @@ function App() {
   return (
     <>
       <weatherContext.Provider value={{ state, updateState }}>
-        <div className="container">
-          <SideNav />
-          <Main />
-       {state.fetched &&   <Aside />}
-        </div>
+        <RouterProvider router={router} />
+        
+       {/* <Weather/> */}
       </weatherContext.Provider>
     </>
   );

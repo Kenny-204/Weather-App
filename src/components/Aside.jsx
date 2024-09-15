@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { weatherContext } from "./App";
+import { weatherContext } from "../app/App.jsx";
 
 export function Aside() {
   const { state } = useContext(weatherContext);

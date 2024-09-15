@@ -1,6 +1,10 @@
 import { useState } from "react";
-
+import { Link, useLocation } from "react-router-dom";
 /* eslint-disable react/prop-types */
+
+// const Location = useLocation()
+// const {pathName} = Location
+
 export function SideNav() {
   return (
     <nav className="sidenav">
@@ -103,7 +107,11 @@ function SideNavItem({ name, className = "", faclass }) {
         <i className={faclass + " "+ " icons"} >
           {" "}
         </i>
-        <a href="#">{name}</a>
+        <Link 
+        // className={
+        //   pathName ===("/"+name)? 'active' : ''
+        // }
+        to={"/"+name}>{name}</Link>
       </div>
     </li>
   );
