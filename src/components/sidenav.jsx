@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 /* eslint-disable react/prop-types */
 
 // const Location = useLocation()
@@ -17,10 +17,18 @@ export function SideNav() {
             </h2>
           </div>
         </li>
-        <SideNavItem className="active" name="Weather" faclass="fa fa-cloud" />
-        <SideNavItem name="Cities" faclass="fa fa-city" />
-        <SideNavItem name="Map" faclass="fa fa-cloud" />
-        <SideNavItem name="Settings" faclass="fa fa-map-marker" />
+        <li>
+          <SideNavItem name="Weather" faclass="fa fa-cloud" />
+        </li>
+        <li>
+          <SideNavItem name="Cities" faclass="fa fa-city" />
+        </li>
+        <li>
+          <SideNavItem name="Map" faclass="fa fa-cloud" />
+        </li>
+        <li>
+          <SideNavItem name="Settings" faclass="fa fa-map-marker" />
+        </li>
       </ul>
       <div
         className="flex"
@@ -63,11 +71,12 @@ function Dropdown() {
     setToggle(!toggle);
     console.log(toggle);
   }
-console.log(toggle ? "fa fa-xmark" : "fa fa-bars")
+  console.log(toggle ? "fa fa-xmark" : "fa fa-bars");
   return (
     <>
       <div className="toggle_Btn" onClick={handleClick} key="unique">
         <i
+          key={4}
           className={toggle ? "fa fa-xmark" : "fa fa-bars"}
           style={{ color: " #979DA5", width: "30px", height: "30px" }}
         ></i>
@@ -78,16 +87,15 @@ console.log(toggle ? "fa fa-xmark" : "fa fa-bars")
       </div>
 
       <div className={toggle ? "dropdown--menu open" : "dropdown--menu"}>
-        <DropdownItem label="Weather" active=" active"/>
+        <DropdownItem label="Weather" active=" active" />
         <DropdownItem label="Cities" />
         <DropdownItem label="Maps" />
         <DropdownItem label="Settings" />
-
       </div>
     </>
   );
 }
-function DropdownItem({ label,active='' }) {
+function DropdownItem({ label, active = "" }) {
   return (
     <li>
       <a className={"dropdown--item" + active} href="#">
@@ -97,22 +105,12 @@ function DropdownItem({ label,active='' }) {
   );
 }
 
-function SideNavItem({ name, className = "", faclass }) {
+function SideNavItem({ name, faclass }) {
   return (
-    <li className={className}>
-      <div
-        className="flex side"
-        style={{ justifyContent: "space-around", alignContent: "baseline" }}
-      >
-        <i className={faclass + " "+ " icons"} >
-          {" "}
-        </i>
-        <Link 
-        // className={
-        //   pathName ===("/"+name)? 'active' : ''
-        // }
-        to={"/"+name}>{name}</Link>
-      </div>
-    </li>
+    <>
+      <NavLink className="flex" to={"/" + name}>
+        <i className={faclass + " " + " icons"}> </i> {name}
+      </NavLink>
+    </>
   );
 }

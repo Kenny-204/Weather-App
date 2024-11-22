@@ -59,11 +59,7 @@ body {
 
 .container {
   display: flex;
-  /* flex-wrap: wrap; */
-  /* justify-content: space-between; */
   gap: 1.7rem;
-  /* grid-template-columns: 15% auto 22%; */
-  /* grid-template-rows: 100%; */
 }
 
 .sidenav .logo {
@@ -90,40 +86,29 @@ a {
   text-decoration: none;
   color: white;
 }
-
-.sidenav li {
-  position: relative;
+.sidenav li a svg{
+  color: white;
 }
-.sidenav li i {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 .sidenav li a {
-  padding: 20px 0 20px 30px;
+  padding: 15px 0 25px 30px;
   transition: all 0.1s 0s ease-in;
-  width: 100%;
-  height: 100%;
-  display: block;
+  /* width: 100%;
+  height: 100%; */
+  
   color: var(--light-ash-text);
   font-size: 0.9rem;
+  /* justify-content: space-around; */
+  align-items: baseline;
+  gap: 5px;
+  /* place-content: center; */
 }
-
-.side {
-  padding: 5px 0 5px 30px;
-}
-
-.sidenav li div:hover {
+.sidenav li a:hover {
   transform: translateX(-5px);
 }
 
-.sidenav li.active {
-  /* padding: 10px; */
-  /* border: white solid 1px; */
-  /* width: 100%; */
+.sidenav li a.active {
   background-color: var(--background-dark-medium);
-  border-left: white solid 5px;
+  border-left: white solid 5px; 
 }
 
 .sidenav .icons {
@@ -324,7 +309,6 @@ a {
   color: var(--dark-ash-text);
 }
 
-
 @media all and (max-width: 1288px) {
   .main .forecasts .forecasts-list {
     overflow-x: scroll;
@@ -332,7 +316,7 @@ a {
 }
 @media all and (max-width: 978px) {
   .main {
-    width:90%;
+    width: 90%;
   }
 }
 /* aside */
@@ -400,7 +384,6 @@ a {
 
 .dropdown--menu button {
   background-color: #fa8443;
-  font-family: lato;
   color: #f7f7f7ff;
   width: 120px;
   height: 46px;
@@ -426,7 +409,7 @@ a {
 
 /*  */
 /* Map Page */
-#map{
+#map {
   margin-top: 40px;
   width: 400px;
   height: 300px;
